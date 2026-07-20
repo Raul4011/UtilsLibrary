@@ -1,15 +1,33 @@
-import {resolve} from "path"
-import {defineConfig} from "vite"
+/// <reference types="vitest/config" />
+import { resolve } from "path"
+import { defineConfig } from "vite"
 import dts from "vite-plugin-dts"
+//import tsconfigPaths from "vite-tsconfig-paths";
 
 
 export default defineConfig({
-    build:{
-        lib:{
-            entry:resolve(__dirname,"src/index.ts"),
-            name:"my-lib",
-            fileName:"my-lib"
+    build: {
+        lib: {
+            entry: resolve(__dirname, "src/index.ts"),
+            name: "my-lib",
+            fileName: "my-lib"
         }
     },
-    plugins:[dts({outDirs:"dist"})]
+    resolve: {
+        alias: {
+            "@": resolve(__dirname, "src"),
+
+        }
+    },
+    test: {
+        globals: true,
+        environment: "node",
+        coverage: {
+            include: [
+                "src/**/*.ts"
+            ]
+        }
+
+    },
+    plugins: [dts({ outDirs: "dist" })]
 })
