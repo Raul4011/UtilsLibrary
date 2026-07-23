@@ -19,16 +19,12 @@ describe("isObjectLike()", () => {
         [{}, true],
         [{ name: "Augusto" }, true],
         [Object.create(null), true],
-
         [[], false],
         [[1, 2, 3], false],
-
         [new Date(), false],
         [/abc/, false],
-
         [null, false],
         [undefined, false],
-
         ["hola", false],
         [123, false],
         [true, false],
