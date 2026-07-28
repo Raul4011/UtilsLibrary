@@ -1,27 +1,36 @@
 {
   "name": "ts-utils-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "A collection of TypeScript utility functions",
   "type": "module",
   "main": "./dist/my-lib.umd.cjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/my-lib.js",
       "require": "./dist/my-lib.umd.cjs"
     }
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
   "files": [
     "dist"
   ],
+  "keywords": [
+    "typescript",
+    "utilities",
+    "utils",
+    "javascript",
+    "helpers"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .ts",
     "lint:fix": "npm run lint -- --fix",
     "check:types": "tsc --noEmit",
-    "prepare": "husky install",
     "test": "vitest run --coverage",
     "test:watch": "vitest --watch",
     "test:mutation": "stryker run"

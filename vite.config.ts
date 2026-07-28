@@ -29,5 +29,12 @@ export default defineConfig({
         }
 
     },
-    plugins: [dts({ outDirs: "dist" })]
+    plugins: [
+        dts({
+            outDirs: "dist", 
+            exclude: [
+            "**/*.test.ts",
+            "**/___tests___/**"
+        ]
+    })]
 })
