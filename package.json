@@ -1,6 +1,6 @@
 {
   "name": "ts-utils-kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A collection of TypeScript utility functions",
   "type": "module",
   "main": "./dist/my-lib.umd.cjs",
