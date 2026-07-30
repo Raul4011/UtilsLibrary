@@ -5,3 +5,10 @@ export interface Identifiable {
 }
 
 export type AnyFunction = (...args: unknown[]) => unknown;
+
+
+export type DebouncedFunction<T extends AnyFunction> =
+    (...args: Parameters<T>) => void
+
+export type ThrottledFunction<T extends AnyFunction> =
+    (...args: Parameters<T>) => void

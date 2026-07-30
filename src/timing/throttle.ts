@@ -1,16 +1,20 @@
-import type { AnyFunction } from "../types/helpers";
+import type { AnyFunction, ThrottledFunction } from "../types/helpers";
 
 
-export function throttle<T extends AnyFunction> (fn:T,delay:number): (...args: Parameters<T>) => void {
-   
-   let timeoutId:ReturnType<typeof setTimeout> | undefined
-    return function throttledFn (...args:Parameters<T>) {
+export function throttle<T extends AnyFunction>(fn:T,delay:number):ThrottledFunction<T> {
+
+    let timeoutId:ReturnType<typeof setTimeout> | undefined
+
+    return (...args: Parameters<T>) => {
+
         if(timeoutId !== undefined){
             return
         }
-        timeoutId = setTimeout(()=>{
+
+        timeoutId = setTimeout(() => {
             timeoutId = undefined
-        },delay)
-        return fn(...args)
+        }, delay)
+
+        fn(...args)
     }
 }
